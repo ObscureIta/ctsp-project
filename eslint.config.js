@@ -31,7 +31,7 @@ export default defineConfig([
           semi: true,
           trailingComma: 'es5',
           bracketSpacing: true,
-          endOfLine: 'lf',
+          endOfLine: 'auto',
         },
       ],
     },
