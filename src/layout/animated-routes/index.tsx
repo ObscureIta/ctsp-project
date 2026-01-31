@@ -3,11 +3,12 @@ import Clock from '../../features/clock';
 import Timer from '../../features/timer';
 import Stopwatch from '../../features/stopwatch';
 import Pomodoro from '../../features/pomodoro';
+import styles from './styles.module.scss';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
-    <div>
+    <div className={styles.featureContainer}>
       <Routes location={location}>
         <Route path="/clock" element={<Clock />} />
         <Route path="/timer" element={<Timer />} />
