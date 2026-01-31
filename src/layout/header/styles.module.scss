@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+
+  .leftSection, .rightSection {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .leftSection {
+    .logo {
+      margin: 0;
+    }
+  }
+
+  .centerSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .linkList {
+      font-size: 18px;
+      display: flex;
+      list-style: none;
+      gap: 10px;
+    }
+  }
+}

@@ -11,8 +11,8 @@ const AnimatedRoutes = () => {
       <Routes location={location}>
         <Route path="/clock" element={<Clock />} />
         <Route path="/timer" element={<Timer />} />
-        <Route path="/clock" element={<Stopwatch />} />
-        <Route path="/clock" element={<Pomodoro />} />
+        <Route path="/stopwatch" element={<Stopwatch />} />
+        <Route path="/pomodoro" element={<Pomodoro />} />
         <Route path="*" element={<Navigate to="/clock" replace />} />
       </Routes>
     </div>
