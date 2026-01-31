@@ -1,0 +1,34 @@
+@import "./variables";
+@import "./fonts";
+@import "./normalize";
+
+:root {
+  --transition: #{$transition-fast};
+}
+
+body {
+  font-family: $font-main;
+  background-color: $color-bg;
+  color: $color-text;
+  margin: 0;
+  padding: 0;
+  transition: background $transition-fast, color $transition-fast;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: $font-family-main;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
