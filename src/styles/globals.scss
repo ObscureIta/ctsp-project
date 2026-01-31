@@ -1,9 +1,10 @@
-@import "./variables";
-@import "./fonts";
-@import "./normalize";
+@use "./variables" as *;
+
+@use "./fonts" as *;
+@use "./normalize" as *;
 
 :root {
-  --transition: #{$transition-fast};
+  --transition: #{$transition-fast}; // Правильно!
 }
 
 body {
@@ -12,7 +13,7 @@ body {
   color: $color-text;
   margin: 0;
   padding: 0;
-  transition: background $transition-fast, color $transition-fast;
+  transition: background-color $transition-fast, color $transition-fast;
 }
 
 * {
@@ -25,7 +26,7 @@ html, body, #root {
   height: 100%;
   background-color: $color-bg;
   color: $color-text;
-  font-family: $font-family-main;
+  font-family: $font-main;
 }
 
 a {
