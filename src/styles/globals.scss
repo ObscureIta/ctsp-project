@@ -7,14 +7,6 @@
   --transition: #{$transition-fast}; // Правильно!
 }
 
-body {
-  font-family: $font-main;
-  background-color: $color-bg;
-  color: $color-text;
-  margin: 0;
-  padding: 0;
-  transition: background-color $transition-fast, color $transition-fast;
-}
 
 * {
   box-sizing: border-box;
@@ -27,6 +19,15 @@ html, body, #root {
   background-color: $color-bg;
   color: $color-text;
   font-family: $font-main;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $color-bg;
+  color: $color-text;
+  margin: 0;
+  padding: 0;
+  transition: background-color $transition-fast, color $transition-fast;
 }
 
 a {

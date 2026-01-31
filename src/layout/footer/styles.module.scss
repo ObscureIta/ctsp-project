@@ -1,0 +1,38 @@
+@use "../../styles/variables" as *;
+
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: rgba($color-text, 0.5);
+  background: rgba($color-bg, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba($color-text, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: rgba($color-text, 0.8);
+    background: rgba($color-bg, 0.9);
+    transform: translateY(-2px);
+  }
+}
+
+.link {
+  color: $color-text;
+  text-decoration: none;
+  font-weight: 600;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
