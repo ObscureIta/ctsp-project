@@ -1,25 +1,53 @@
 @use "../../styles/variables" as *;
 
 .appContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
 }
 
 .carouselControls {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 20px;
+
+
 
   button {
-    background: var(--accent);
-    color: white;
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.0);
     border: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
+
+  .arrowIcon {
+    width: 2rem;
+    height: 2rem;
+    color: rgba($color-accent, 0.65);
+  }
+
+  .arrowRight {
+    transform: rotate(180deg);
+  }
+}
+
+.rightOnly {
+  justify-content: flex-end;
 }

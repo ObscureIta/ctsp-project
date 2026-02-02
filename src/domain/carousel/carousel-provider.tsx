@@ -62,9 +62,12 @@ export const CarouselProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   }, [location.pathname, currentIndex, len]);
 
+  const isFirstElement = currentIndex === 0;
+  const isLastElement = currentIndex === len - 1;
+
   const value = useMemo(
-    () => ({ currentIndex, direction, navigateTo, next, prev }),
-    [currentIndex, direction, next, prev, navigateTo]
+    () => ({ currentIndex, direction, isFirstElement, isLastElement, navigateTo, next, prev }),
+    [currentIndex, direction, next, prev, navigateTo, isFirstElement, isLastElement]
   );
 
   return <CarouselContext.Provider value={value}>{children}</CarouselContext.Provider>;
