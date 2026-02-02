@@ -1,14 +1,12 @@
+// header/index.tsx
 import { NavLink } from 'react-router';
 import styles from './styles.module.scss';
-
-const navItems = [
-  { path: '/clock', label: 'Clock' },
-  { path: '/timer', label: 'Timer' },
-  { path: '/stopwatch', label: 'Stopwatch' },
-  { path: '/pomodoro', label: 'Pomodoro' },
-];
+import { routes } from '../../features/routesConfig';
+import { useCarousel } from '../../domain/carousel/use-carousel-context';
 
 const Header = () => {
+  const { currentIndex, navigateTo } = useCarousel();
+
   return (
     <header className={styles.header}>
       <div className={styles.leftSection}>
@@ -16,20 +14,27 @@ const Header = () => {
           <NavLink to="/">CTSP</NavLink>
         </h1>
       </div>
+
       <nav className={styles.centerSection}>
         <ul className={styles.linkList}>
-          {navItems.map((navItem) => {
-            return (
-              <li>
-                <NavLink to={navItem.path}>{navItem.label}</NavLink>
-              </li>
-            );
-          })}
+          {routes.map((route, idx) => (
+            <li key={route.path}>
+              <a
+                href={route.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (idx !== currentIndex) navigateTo(idx);
+                }}
+                className={idx === currentIndex ? styles.activeLink : ''}
+              >
+                {route.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
 
-      {/* Правый блок — пустой, для баланса */}
-      <div className={styles.rightSection}></div>
+      <div className={styles.rightSection} />
     </header>
   );
 };
