@@ -23,7 +23,8 @@ html, body, #root {
 
 body {
   font-family: $font-main;
-  background-color: $color-bg;
+  background: linear-gradient(135deg, #f1f3f6 0%, #e4e7ec 100%);
+  color: #222;
   color: $color-text;
   margin: 0;
   padding: 0;
@@ -34,3 +35,4 @@ a {
   color: inherit;
   text-decoration: none;
 }
+

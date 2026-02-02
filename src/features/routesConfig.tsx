@@ -11,8 +11,8 @@ export type RoutesArrEl = {
 };
 
 export const routes = [
-  { path: '/clock', label: 'Clock', element: <Clock /> },
-  { path: '/timer', label: 'Timer', element: <Timer /> },
-  { path: '/stopwatch', label: 'Stopwatch', element: <Stopwatch /> },
-  { path: '/pomodoro', label: 'Pomodoro', element: <Pomodoro /> },
+  { path: '/clock', label: 'clock', element: <Clock /> },
+  { path: '/timer', label: 'timer', element: <Timer /> },
+  { path: '/stopwatch', label: 'stopwatch', element: <Stopwatch /> },
+  { path: '/pomodoro', label: 'pomodoro', element: <Pomodoro /> },
 ] as const;

@@ -16,26 +16,33 @@ const AnimatedRoutes: React.FC = () => {
 
   return (
     <div className={styles.featureContainer}>
-      <AnimatePresence initial={false} custom={direction} mode="wait">
-        <motion.div
-          key={location.pathname}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-        >
-          <Routes location={location}>
-            {routes.map((r) => (
-              <Route key={r.path} path={r.path} element={r.element} />
-            ))}
-            <Route path="*" element={<Navigate to="/clock" replace />} />
-          </Routes>
-        </motion.div>
+      <AnimatePresence mode="wait">
+        <Routes location={location}>
+          {routes.map((r) => (
+            <Route
+              key={r.path}
+              path={r.path}
+              element={
+                <motion.div
+                  key={r.path}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: 'spring', stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 },
+                  }}
+                  className={styles.motionPage}
+                >
+                  {r.element}
+                </motion.div>
+              }
+            />
+          ))}
+          <Route path="*" element={<Navigate to="/clock" replace />} />
+        </Routes>
       </AnimatePresence>
     </div>
   );
