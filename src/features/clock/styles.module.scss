@@ -26,43 +26,6 @@
   }
 }
 
-.clockSvg {
-  width: 280px;
-  height: 280px;
-  transform: rotate(-90deg);
-}
-
-.circleBg {
-  fill: none;
-  stroke: rgba($color-text, 0.05);
-  stroke-width: 4;
-}
-
-.circleHour,
-.circleMinute,
-.circleSecond {
-  fill: none;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.5s ease-in-out;
-  filter: drop-shadow(0 0 4px rgba($color-text, 0.15));
-}
-
-.circleHour {
-  stroke: linear-gradient(90deg, rgba($color-accent, 0.6), rgba($color-accent, 0.2));
-  stroke: rgba($color-accent, 0.4);
-  stroke-width: 5;
-}
-
-.circleMinute {
-  stroke: rgba($color-accent, 0.25);
-  stroke-width: 3.5;
-}
-
-.circleSecond {
-  stroke: rgba($color-accent, 0.15);
-  stroke-width: 2.5;
-}
-
 .timeDisplay {
   position: absolute;
   font-size: 2rem;
@@ -77,10 +40,6 @@
   .clockContainer {
     width: 300px;
     height: 300px;
-  }
-  .clockSvg {
-    width: 220px;
-    height: 220px;
   }
   .timeDisplay {
     font-size: 1.8rem;
