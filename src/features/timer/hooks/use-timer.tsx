@@ -26,7 +26,7 @@ export const useTimer = (): UseTimerReturn => {
   const seconds = remaining % 60;
 
   const setHours = useCallback((h: number) => {
-    h = clamp(h, 0);
+    h = clamp(h, 0, 23);
     setRemaining((prev) => {
       const curM = Math.floor((prev % 3600) / 60);
       const curS = prev % 60;
@@ -35,6 +35,7 @@ export const useTimer = (): UseTimerReturn => {
   }, []);
 
   const setMinutes = useCallback((m: number) => {
+    if (m > 59) m = 59;
     m = clamp(m, 0, 59);
     setRemaining((prev) => {
       const curH = Math.floor(prev / 3600);
