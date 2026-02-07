@@ -4,7 +4,7 @@ import { CarouselProvider } from './domain/carousel/carousel-provider';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/ctsp-project">
       <CarouselProvider>
         <AppLayout />
       </CarouselProvider>
