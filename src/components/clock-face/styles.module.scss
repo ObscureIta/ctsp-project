@@ -43,3 +43,11 @@
     height: 220px;
   }
 }
+
+.circleBgHour,
+.circleBgMinute,
+.circleBgSecond {
+  fill: none;
+  stroke: rgba($color-accent, 0.05);
+  stroke-width: inherit;
+}

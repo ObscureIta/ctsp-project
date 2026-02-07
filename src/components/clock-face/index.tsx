@@ -13,7 +13,10 @@ const ClockFace: React.FC<ClockFaceProps> = ({ hours, minutes, seconds }) => {
 
   return (
     <svg viewBox="0 0 200 200" className={styles.clockSvg}>
-      <circle className={styles.circleBg} cx="100" cy="100" r="90" />
+      <circle className={styles.circleBgHour} cx="100" cy="100" r="90" />
+      <circle className={styles.circleBgMinute} cx="100" cy="100" r="75" />
+      <circle className={styles.circleBgSecond} cx="100" cy="100" r="60" />
+
       <circle
         className={styles.circleHour}
         cx="100"
