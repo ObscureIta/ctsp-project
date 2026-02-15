@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import styles from './styles.module.scss';
 import ClockFace from '../../components/clock-face';
 
 const Clock = () => {
@@ -14,12 +13,7 @@ const Clock = () => {
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
 
-  return (
-    <div className={styles.clockContainer}>
-      <ClockFace hours={hours} minutes={minutes} seconds={seconds} />
-      <div className={styles.timeDisplay}>{time.toLocaleTimeString('en-GB')}</div>
-    </div>
-  );
+  return <ClockFace hours={hours} minutes={minutes} seconds={seconds} />;
 };
 
 export default Clock;

@@ -1,5 +1,31 @@
 @use "../../styles/variables" as *;
 
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background: rgba($color-bg, 0.3);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba($color-text, 0.05);
+  border-radius: 50%;
+  width: 380px;
+  height: 380px;
+  box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.05),
+          inset 0 0 20px rgba(255, 255, 255, 0.15);
+
+  transition: all 0.4s ease;
+
+  &:hover {
+    box-shadow:
+            0 12px 32px rgba(0, 0, 0, 0.06),
+            inset 0 0 24px rgba(255, 255, 255, 0.25);
+  }
+}
+
 .clockSvg {
   width: 280px;
   height: 280px;
@@ -50,4 +76,24 @@
   fill: none;
   stroke: rgba($color-accent, 0.05);
   stroke-width: inherit;
+}
+
+.timeDisplay {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 500;
+  color: rgba($color-text, 0.9);
+  text-shadow: 0 0 8px rgba($color-text, 0.15);
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .clockContainer {
+    width: 300px;
+    height: 300px;
+  }
+  .timeDisplay {
+    font-size: 1.8rem;
+  }
 }

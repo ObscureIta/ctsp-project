@@ -7,34 +7,38 @@ const Stopwatch = () => {
   const { hours, minutes, seconds, isRunning, flags, start, stop, reset, addFlag } = useStopwatch();
 
   return (
-    <div>
-      <div className={styles.clockContainer}>
-        <ClockFace hours={hours} minutes={minutes} seconds={seconds} />
-        <div className={styles.timeDisplay}>
-          {`${hours.toString().padStart(2, '0')}:${minutes
-            .toString()
-            .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}
+    <div className={styles.stopwatch}>
+      <ClockFace hours={hours} minutes={minutes} seconds={seconds} />
+
+      <div className={styles.controlsAndList}>
+        <div className={styles.controls}>
+          <Button onClick={isRunning ? stop : start} label={isRunning ? 'stop' : 'start'} />
+          <Button onClick={addFlag} disabled={!isRunning} label="flag" />
+          <Button onClick={reset} label="reset" />
         </div>
-      </div>
 
-      <div style={{ display: 'flex', gap: 8, marginTop: 16 }}>
-        <Button onClick={isRunning ? stop : start} label={isRunning ? 'stop' : 'start'} />
-        <Button onClick={addFlag} disabled={!isRunning} label={'flag'} />
-        <Button onClick={reset} label={'reset'} />
-      </div>
+        <ul className={styles.list}>
+          {flags.map((f, idx) => {
+            const totalSeconds = Math.floor(f / 1000);
+            const h = Math.floor(totalSeconds / 3600);
+            const m = Math.floor((totalSeconds % 3600) / 60);
+            const s = totalSeconds % 60;
+            const ms = Math.floor(f % 1000);
 
-      <ul>
-        {flags.map((f, idx) => {
-          const h = Math.floor(f / 3600);
-          const m = Math.floor((f % 3600) / 60);
-          const s = f % 60;
-          return (
-            <li
-              key={idx}
-            >{`${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`}</li>
-          );
-        })}
-      </ul>
+            return (
+              <li key={idx} className={styles.el}>
+                <div className={styles.elNumber}>{idx + 1 + '.'}</div>
+                <div className={styles.elResult}>
+                  {`${h.toString().padStart(2, '0')}:` +
+                    `${m.toString().padStart(2, '0')}:` +
+                    `${s.toString().padStart(2, '0')}:` +
+                    `${ms.toString().padStart(3, '0')}`}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
