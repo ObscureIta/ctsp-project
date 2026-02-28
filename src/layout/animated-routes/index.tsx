@@ -5,9 +5,9 @@ import styles from './styles.module.scss';
 import { useCarousel } from '../../domain/carousel/use-carousel-context';
 
 const variants = {
-  enter: (dir: number) => ({ x: dir > 0 ? -1000 : 1000, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir < 0 ? 1000 : -1000, opacity: 0 }),
+  exit: (dir: number) => ({ x: dir < 0 ? 300 : -300, opacity: 0 }),
 };
 
 const AnimatedRoutes = () => {
