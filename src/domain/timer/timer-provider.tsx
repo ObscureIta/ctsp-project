@@ -1,39 +1,29 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { clamp } from "../../utils/utils" 
+import { TimerContext } from './context';
 
-interface UseTimerReturn {
-  hours: number;
-  minutes: number;
-  seconds: number;
-  isRunning: boolean;
-  start: () => void;
-  stop: () => void;
-  reset: () => void;
-  setHours: (h: number) => void;
-  setMinutes: (m: number) => void;
-  setSeconds?: (s: number) => void;
+type TimerProviderType = {
+  children: ReactNode;
 }
 
-const clamp = (v: number, min = 0, max = Number.MAX_SAFE_INTEGER) =>
-  Math.min(max, Math.max(min, Math.trunc(v)));
-
-export const useTimer = (): UseTimerReturn => {
+export const TimerProvider = ({ children }: TimerProviderType) => {
   const [remaining, setRemaining] = useState<number>(0);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<number | null>(null);
-
+  
   const hours = Math.floor(remaining / 3600);
   const minutes = Math.floor((remaining % 3600) / 60);
   const seconds = remaining % 60;
 
   const setHours = useCallback((h: number) => {
-    h = clamp(h, 0, 23);
-    setRemaining((prev) => {
-      const curM = Math.floor((prev % 3600) / 60);
-      const curS = prev % 60;
-      return h * 3600 + curM * 60 + curS;
-    });
-  }, []);
-
+      h = clamp(h, 0, 23);
+      setRemaining((prev) => {
+        const curM = Math.floor((prev % 3600) / 60);
+        const curS = prev % 60;
+        return h * 3600 + curM * 60 + curS;
+      });
+    }, []);
+  
   const setMinutes = useCallback((m: number) => {
     if (m > 59) m = 59;
     m = clamp(m, 0, 59);
@@ -95,16 +85,32 @@ export const useTimer = (): UseTimerReturn => {
     };
   }, []);
 
-  return {
-    hours,
-    minutes,
-    seconds,
-    isRunning,
-    start,
-    stop,
-    reset,
-    setHours,
-    setMinutes,
-    setSeconds,
-  };
-};
+const value = useMemo(
+    () => ({ 
+      hours,
+      minutes,
+      seconds,
+      isRunning,
+      start,
+      stop,
+      reset,
+      setHours,
+      setMinutes,
+      setSeconds, 
+    }),
+    [
+      hours,
+      minutes,
+      seconds,
+      isRunning,
+      start,
+      stop,
+      reset,
+      setHours,
+      setMinutes,
+      setSeconds,
+    ]
+  );
+
+  return <TimerContext.Provider value={value}>{children}</TimerContext.Provider>;
+}

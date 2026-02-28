@@ -1,4 +1,4 @@
-import { useTimer } from './hooks/use-timer';
+import { useTimer } from '../../domain/timer/use-timer-context';
 import ClockFace from '../../components/clock-face';
 import styles from './styles.module.scss';
 import Input from '../../components/input';
