@@ -12,11 +12,6 @@ const Timer = () => {
     <div className={styles.timerContainer}>
       <div className={styles.clockContainer}>
         <ClockFace hours={hours} minutes={minutes} seconds={seconds} />
-        <div className={styles.timeDisplay}>
-          {`${hours.toString().padStart(2, '0')}:${minutes
-            .toString()
-            .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}
-        </div>
       </div>
 
       <div className={styles.controls}>

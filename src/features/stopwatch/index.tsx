@@ -16,7 +16,7 @@ const Stopwatch = () => {
           <Button onClick={addFlag} disabled={!isRunning} label="flag" />
           <Button onClick={reset} label="reset" />
         </div>
-
+        {/* TODO: Изменить симом списка*/}
         <ul className={styles.list}>
           {flags.map((f, idx) => {
             const totalSeconds = Math.floor(f / 1000);

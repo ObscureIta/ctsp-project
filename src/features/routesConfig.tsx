@@ -3,6 +3,7 @@ import Timer from './timer';
 import Stopwatch from './stopwatch';
 import Pomodoro from './pomodoro';
 import type { ReactElement } from 'react';
+import { Navigate } from 'react-router';
 
 export type RoutesArrEl = {
   path: string;
@@ -16,3 +17,8 @@ export const routes = [
   { path: '/stopwatch', label: 'stopwatch', element: <Stopwatch /> },
   { path: '/pomodoro', label: 'pomodoro', element: <Pomodoro /> },
 ] as const;
+
+export const routesConfig = [
+  ...routes,
+  { path: '*', element: <Navigate to="/clock" replace /> },
+];
