@@ -10,9 +10,7 @@ const Timer = () => {
 
   return (
     <div className={styles.timerContainer}>
-      <div className={styles.clockContainer}>
-        <ClockFace hours={hours} minutes={minutes} seconds={seconds} />
-      </div>
+      <ClockFace hours={hours} minutes={minutes} seconds={seconds} />
 
       <div className={styles.controls}>
         <div className={styles.inputs}>
